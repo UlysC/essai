@@ -1189,8 +1189,8 @@
 
 "@gatoreviews/node-semantic-release@^1.0.2":
   version "1.0.2"
-  resolved "https://npm.pkg.github.com/download/@gatoreviews/node-semantic-release/1.0.2/8b3a5ed1410298fee6cfad26c29015ec7519e3e1f80dff6eeccb2c022c5927de#48c81136d0af8be644e6c20cb74146705c8f40ac"
-  integrity sha512-mi/YHdPDHBwpURPHV+CppWPzunhnT6rsbuWdYk0v322671Nkd2vaybh8nJHo1jRREX37rby3vfkaIBDKY/S0Kw==
+  resolved "https://npm.pkg.github.com/download/@gatoreviews/node-semantic-release/1.0.2/99bc860fbe74a437176b623dc03bf6aef508ae40b383f0e90536145654c05c8c#5f3b88be7508d56d442093bd60ae12c2a68c3510"
+  integrity sha512-DK8SG2RKyKTmyB+zKR+iAnqyoOcagMGtQLwXkYIvICrPwFptRjXqfYM3sddh1uhyr5JlVEPp9TpX0YEMJ/YsLA==
   dependencies:
     "@octokit/rest" "^16.36.0"
     "@semantic-release/changelog" "^6.0.0"
