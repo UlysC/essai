@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+   push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: "Install, build & tests"
+        run: |
+          yarn install --pure-lockfile
+          yarn build
+          yarn test
+        env:
+          NPM_TOKEN: ${{ secrets.CI_GH_TOKEN }}
+      - name: 'Upload coverage to Codecov'
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: "Release"
+        run: |
+          yarn gh-action-gtr-semantic-release
+        env:
+          HUSKY: 0
+          SEMVER_RELEASE_TYPE: LIBRARY_NODE
+          ACTION_GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.CI_GH_TOKEN }}
