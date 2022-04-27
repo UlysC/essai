@@ -24,10 +24,6 @@ jobs:
           yarn test
         env:
           NPM_TOKEN: ${{ secrets.CI_GH_TOKEN }}
-      - name: 'Upload coverage to Codecov'
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
       - name: "Release"
         run: |
           yarn gh-action-gtr-semantic-release
